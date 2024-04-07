@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary p-4">
+  <div class="container-fluid">
+  <%= link_to "EMP_MAN", root_path,class: "navbar-brand mb-0 h1" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to "Home", root_path,class: "nav-link active" %>
+        </li>
+        <% if Current.user %>
+        <li class="nav-item">
+          <%= link_to "Change Password", password_path,class: "nav-link active" %>
+        </li>
+          <% end %>
+      </ul>
+    </div>
+
+    <% if Current.user %>
+      <div class="d-flex gap-2">
+        <p class="navbar-brand mb-0 h1"><%= Current.user.name %></p>
+        <%= button_to "Log Out", logout_path , class: "btn btn-danger" ,method: :delete %>
+      </div>
+      <% else %>
+      <div class="d-flex gap-2">
+        <%= link_to "Sign Up", sign_up_path,class: "btn btn-primary" %>
+        <%= link_to "Sign In", login_path,class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</nav>

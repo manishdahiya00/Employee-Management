@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Change Password</h1>
+  <%= form_with model: Current.user , url: password_path, class: "mt-3 form-control p-4" do |form|  %>
+    <div class="mb-3">
+      <%= form.label :enter_new_password, class: "form-label" %>
+      <%= form.password_field :password , class: "form-control" , placeholder: "*********"%>
+    </div>
+    <div class="mb-3">
+      <%= form.submit "Change Password",class:"btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
