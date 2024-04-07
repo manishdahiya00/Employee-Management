@@ -1,9 +1,13 @@
 class RegistrationController < ApplicationController
   def new
+    if Current.user
+      redirect_to root_path
+  end
     @user = User.new
   end
 
   def create
+
     @user = User.new(user_params)
     existing_user = User.find_by(email: @user.email)
 

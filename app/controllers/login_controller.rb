@@ -1,5 +1,8 @@
 class LoginController < ApplicationController
   def new
+    if Current.user
+      redirect_to root_path
+  end
   end
 
   def create
